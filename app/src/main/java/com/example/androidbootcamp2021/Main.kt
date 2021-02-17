@@ -22,5 +22,5 @@ fun main() {
     findCommonElements()
     
     // Q6 Check letter in string which do not have pair.
-
+    checkNonPair()
 }
