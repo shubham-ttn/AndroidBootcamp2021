@@ -5,7 +5,7 @@ package com.example.androidbootcamp2021
 fun checkNonPair() {
     val str = "AABDDC"
     var i = 0
-    println("\n\nNon pair elements are: ")
+    println("Non pair elements are: ")
     while (i < str.length-1) {
         if (str[i] != str[i+1]) {
             print(str[i] + " ")
