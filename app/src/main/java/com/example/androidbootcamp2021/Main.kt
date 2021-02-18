@@ -63,4 +63,9 @@ fun main() {
     val ob9 = Q6()
     println("Original content in list: ${ob9.mList}")
     ob9.replaceSecondItem()
+
+    // Q7 Write a program to create mutable map. print all the value and key of map.
+    println("\nQ7")
+    val ob10 = Q7()
+    ob10.makeAndPrintMap()
 }
