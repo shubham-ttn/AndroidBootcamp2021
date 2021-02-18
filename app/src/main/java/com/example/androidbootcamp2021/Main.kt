@@ -68,4 +68,9 @@ fun main() {
     println("\nQ7")
     val ob10 = Q7()
     ob10.makeAndPrintMap()
+
+    // Q8 Write a program to create HasSet. print all the value.
+    println("\n8")
+    val ob11 = Q8()
+    ob11.printHashSet()
 }
