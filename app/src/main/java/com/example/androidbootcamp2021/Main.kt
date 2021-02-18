@@ -57,4 +57,10 @@ fun main() {
     val ob8 = Q5()
     println("Your grade: ${ob8.getGradeDetails(80)}")
 
+    // Q6 Write a program to create mutable list of Integer. replace the second item in the list with
+    // new value. Print the list value.
+    println("\nQ6")
+    val ob9 = Q6()
+    println("Original content in list: ${ob9.mList}")
+    ob9.replaceSecondItem()
 }
