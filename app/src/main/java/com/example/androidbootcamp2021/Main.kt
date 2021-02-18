@@ -13,4 +13,18 @@ fun main() {
     println("First name: ${Q1.fname}")
     println("Last name: ${Q1.lname}")
     println("Age: ${Q1.age}")
+
+    // Q2 Write a single program for following operation using overloading
+    // A) Adding 2 integer number
+    // B) Adding 2 double
+    // D) multiplying 2 int
+    // E) concate 2 string
+    // F) Concate 3 String
+    println("\nQ2")
+    val ob2 = Q2()
+    ob2.addInteger(3, 5)
+    ob2.addDouble(10.5, 4.5)
+    ob2.multiplyInt(4, 4)
+    ob2.concatString("Hello ", "World")
+    ob2.concatThreeStrings("This ", "is ", "Kotlin ")
 }
