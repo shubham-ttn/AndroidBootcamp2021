@@ -70,7 +70,7 @@ fun main() {
     ob10.makeAndPrintMap()
 
     // Q8 Write a program to create HasSet. print all the value.
-    println("\n8")
+    println("\nQ8")
     val ob11 = Q8()
     ob11.printHashSet()
 }
