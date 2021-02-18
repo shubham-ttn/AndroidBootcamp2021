@@ -38,4 +38,14 @@ fun main() {
     val ob5 = ICICI()
     ob5.getBankDetails()
 
+    // Q4 Create Kotlin classes having suitable attributes for Library management system.Use OOPs concepts
+    // in your design.Also try to use interfaces and abstract classes.
+    println("\nQ4")
+    val ob6 = Q4()
+    val ob7 = Q4()
+    ob6.addBook("Intro to Git", 1, "Test")
+    ob7.addBook("Intro to DB", 2, "DBUser")
+    ob6.getBookDetails()
+    ob7.getBookDetails()
+
 }
