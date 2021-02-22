@@ -8,7 +8,7 @@ sealed class Q3 {
 
 
     fun getClass(base: Q3) {
-        println("This is ${base.javaClass}")
+        println("This is called from object of ${base.javaClass}")
     }
 }
 

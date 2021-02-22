@@ -19,7 +19,7 @@ fun main() {
      */
 
     // Q2 WAP to create singleton class.
-    println("\nQ2")
+    println("\nQ2\nUsing singleton class")
     println("The sum of three values are: ${Q2.addThreeInt(2, 3, 5)}")
 
     // Q3 WAP to create sealed Base class and 3 subclasses of Base class, write a function which will have
@@ -31,4 +31,11 @@ fun main() {
     ob3.getClass(ob3)
     ob3.getClass(ob4)
     ob3.getClass(ob5)
+
+    // Q4 WAP to create extension function.
+    println("\nQ4")
+    val ob6 = Q4()
+    println("Using extension function:")
+    ob6.printDetails()
+
 }
