@@ -1,22 +1,22 @@
 package com.example.androidbootcamp2021
 
-import java.lang.Error
+import android.util.Log
+import kotlin.Error
 
 fun main() {
     // Q1 WAP to produce NoClassDefFoundError and ClassNotFoundException exception.
     println("Q1")
-    val ob1 = Q1()
-    ob1.printMsg()
-    /*
+    // For ClassNotFoundException
     try {
-        val ob2 = AnyClass()
-        ob2.printMsg()
+        // This will look for Class name Abc
+        Class.forName("Abc")
     }
-    catch (e: Error) {
-        println(e)
+    catch (e: Exception) {
+        e.printStackTrace()
     }
-
-     */
+    finally {
+        println("ClassNotFoundException")
+    }
 
     // Q2 WAP to create singleton class.
     println("\nQ2\nUsing singleton class")

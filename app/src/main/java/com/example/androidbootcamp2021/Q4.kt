@@ -24,7 +24,7 @@ class Q4 {
 
     fun printDetails() {
         println("Addition of 5 and 10: " + 5.Addition(num1))
-        println("After removing spaces from string Hello Kotlin World!: " + "Hello".returnRemovedSpace(str1, str2))
+        println("After removing spaces from string Hello Kotlin World!: " + "Hello".returnRemovedSpace(str1, str2) + "\n\n")
 
     }
 }
