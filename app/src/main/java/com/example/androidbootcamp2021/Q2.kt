@@ -1,5 +1,6 @@
 package com.example.androidbootcamp2021
 
+<<<<<<< Updated upstream
 // Write a single program for following operation using overloading
 // A) Adding 2 integer number
 // B) Adding 2 double
@@ -45,4 +46,11 @@ class Q2: PerformActions {
     }
 
 
+=======
+// WAP to create singleton class.
+
+object Q2 {
+    // This is shorthand function in kotlin
+    fun addThreeInt(a: Int, b: Int, c: Int) = a+b+c
+>>>>>>> Stashed changes
 }

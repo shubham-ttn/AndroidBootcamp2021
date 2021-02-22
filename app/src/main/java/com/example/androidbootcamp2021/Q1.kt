@@ -1,5 +1,6 @@
 package com.example.androidbootcamp2021
 
+<<<<<<< Updated upstream
 // Write a program to print your Firstname, LastName & age using init block,companion object.
 
 class Q1 {
@@ -33,4 +34,13 @@ class Q1 {
         println("Age: $age")
     }
 
+=======
+// WAP to produce NoClassDefFoundError and ClassNotFoundException exception.
+class Q1 {
+    val msg = "This is class Q1"
+
+    fun printMsg() {
+        println(msg)
+    }
+>>>>>>> Stashed changes
 }
