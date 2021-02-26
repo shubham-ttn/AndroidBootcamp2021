@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".SignupActivity">
 
 
     <TextView
@@ -16,18 +16,39 @@
         android:gravity="center"
         android:rotationX="0"
         android:rotationY="0"
-        android:text="Login"
+        android:text="Signup"
         android:textSize="36sp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextPersonUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextPersonEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:hint="Email"
-        android:inputType="textPersonName" />
+        android:inputType="textWebEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextPersonPhoneNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:maxLength="10"
+        android:hint="Phone number"
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -40,11 +61,10 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:layout_gravity="center_horizontal"
-        android:text="Login"
-/>
+        android:layout_marginTop="36dp"
+        android:text="Signup" />
 </LinearLayout>
