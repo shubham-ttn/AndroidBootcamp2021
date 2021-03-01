@@ -44,6 +44,7 @@ class FirstFragment: Fragment() {
 
         Log.i("FRAGMENT1_LIFECYCLE", "onActivityCreated")
 
+        // Observe Lifecycle of Fragment with activity while using Add, Replace, hide, show, remove
         val addFragmentButton = view!!.findViewById<Button>(R.id.addFragmentBtn)
         addFragmentButton.setOnClickListener {
 

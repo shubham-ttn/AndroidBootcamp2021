@@ -3,10 +3,14 @@ package com.example.androidbootcamp2021
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceFragment
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
 class LaunchingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,21 +30,17 @@ class LaunchingActivity : AppCompatActivity() {
 
         // attach on click listeners
         dialogFragmentBtn.setOnClickListener {
-
             // Get fragment manager support
             val fragmentManager = supportFragmentManager
-
             // create onject of class
             val dialogFragmentDemoObj = DialogFragmentDemo()
+            // show dialog fragment
             dialogFragmentDemoObj.show(fragmentManager, "Dialog Fragment")
+        }
 
+        // attach on click listeners
+        preferenceFragmentBtn.setOnClickListener {
 
-
-            // attach on click listeners
-            preferenceFragmentBtn.setOnClickListener {
-                // send user to next activity
-
-            }
         }
     }
 }
@@ -56,3 +56,4 @@ class DialogFragmentDemo : DialogFragment() {
             .setPositiveButton("Okay!") { _, _ -> }
             .create()
 }
+
