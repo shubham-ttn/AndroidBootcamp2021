@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LaunchingActivity">
+    tools:context=".LaunchingActivity"
+    android:background="@color/white">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Fragment \nDemo"
-        android:textColor="@color/teal_700"
-        android:textSize="42sp"
+        android:textColor="@color/black"
+        android:textSize="48sp"
         android:textStyle="bold|italic"
         android:layout_margin="20dp"
         />
@@ -29,7 +30,7 @@
         android:id="@+id/dFragmentDemoBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dialog Fragment Demo"
+        android:text="Dialog Fragment"
 
         />
 
@@ -37,7 +38,7 @@
         android:id="@+id/pFragmentDemobtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Preference Fragment Demo"
+        android:text="Preference Fragment"
 
         />
 

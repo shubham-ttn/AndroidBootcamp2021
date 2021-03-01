@@ -1,9 +1,12 @@
 package com.example.androidbootcamp2021
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.fragment.app.DialogFragment
 
 class LaunchingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +26,33 @@ class LaunchingActivity : AppCompatActivity() {
 
         // attach on click listeners
         dialogFragmentBtn.setOnClickListener {
-            // send user to next activity
 
-        }
+            // Get fragment manager support
+            val fragmentManager = supportFragmentManager
 
-        // attach on click listeners
-        preferenceFragmentBtn.setOnClickListener {
-            // send user to next activity
+            // create onject of class
+            val dialogFragmentDemoObj = DialogFragmentDemo()
+            dialogFragmentDemoObj.show(fragmentManager, "Dialog Fragment")
 
+
+
+            // attach on click listeners
+            preferenceFragmentBtn.setOnClickListener {
+                // send user to next activity
+
+            }
         }
     }
+}
+
+// Creating Diaglog Fragment
+class DialogFragmentDemo : DialogFragment() {
+
+    // It return Dialog after building it
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
+        AlertDialog.Builder(requireContext())
+            .setTitle("Welcome")
+            .setMessage("This is Dialog Fragment")
+            .setPositiveButton("Okay!") { _, _ -> }
+            .create()
 }
