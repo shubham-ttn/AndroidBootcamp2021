@@ -9,3 +9,7 @@
 * Create a layout using RelativeLayout having the banner image, title, subtitle and other important information e.g. List of restaurants having details like: banner image, name, address, rating(stars), number of reviews.
 
 <img src="output2.png" width="300" height="600" />
+
+* Create a layout using ConstraintLayout having the banner image, title, subtitle and other important information e.g. List of items orders having details like: banner image, name, address, rating(stars), number of reviews, price, order time
+
+<img src="output3.png" width="300" height="600" />
