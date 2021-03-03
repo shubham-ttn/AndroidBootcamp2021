@@ -17,7 +17,7 @@
 <img src="output6.png" width="300" height="600" />
 
 ##### Preference Fragment
-<!-- Add Preference fragment here -->
+<img src="output7.png" width="300" height="600" />
 
 * Develop a sample that show the UI like below 
 <img src="output8.png" width="300" height="600" />

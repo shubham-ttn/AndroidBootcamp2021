@@ -11,6 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.preference.PreferenceFragmentCompat
 
 class LaunchingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class LaunchingActivity : AppCompatActivity() {
         dialogFragmentBtn.setOnClickListener {
             // Get fragment manager support
             val fragmentManager = supportFragmentManager
-            // create onject of class
+            // create object of class
             val dialogFragmentDemoObj = DialogFragmentDemo()
             // show dialog fragment
             dialogFragmentDemoObj.show(fragmentManager, "Dialog Fragment")
@@ -40,20 +41,9 @@ class LaunchingActivity : AppCompatActivity() {
 
         // attach on click listeners
         preferenceFragmentBtn.setOnClickListener {
-
+            startActivity(Intent(this, PreferenceActivity::class.java))
         }
     }
 }
 
-// Creating Diaglog Fragment
-class DialogFragmentDemo : DialogFragment() {
-
-    // It return Dialog after building it
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        AlertDialog.Builder(requireContext())
-            .setTitle("Welcome")
-            .setMessage("This is Dialog Fragment")
-            .setPositiveButton("Okay!") { _, _ -> }
-            .create()
-}
 
