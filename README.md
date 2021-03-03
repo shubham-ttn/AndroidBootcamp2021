@@ -5,4 +5,4 @@
 * Implement the UI as shown in image using recycler view. You can use the item row layout created in previous session’s exercise.
 * Implement pagination, just add related dummy data to demonstrate pagination.
 
-<img src="output1.png" width="300" height="600" />
+<img src="recyclerviewDemo.gif" width="300" height="600" />
