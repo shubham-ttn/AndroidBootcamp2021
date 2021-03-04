@@ -1,8 +1,6 @@
 package com.example.androidbootcamp2021
 
 import android.content.Context
-import android.media.Image
-import android.view.ContextMenu
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +38,7 @@ class MyCustomAdapter(private val context: Context, private val listViewType: Li
     }
 
     override fun getItemViewType(position: Int): Int = listViewType[position]
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         // Create a new view, which defines the UI of the list item
