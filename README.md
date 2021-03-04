@@ -10,7 +10,7 @@
 
 _Feel free to customise your view in terms of UI but showcase all the three views._
 
-<img src="heterogeneous_recyclerview_demo.gif" width="300" height="600" />
+<img src="output1.png" width="300" height="600" />
 
 
 * Pagination Exercise 
