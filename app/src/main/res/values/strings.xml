@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidBootcamp2021</string>
+    <string name="main_heading">Android Storage</string>
+    <string name="shared_preferences_btn_text">Shared Preferences</string>
+    <string name="file_storage_btn_text">File Storage</string>
+    <string name="input_text_hint">Enter any text</string>
+    <string name="submit_btn_text">Submit</string>
+    <string name="retrieve_btn_text">Retrieve</string>
 </resources>
