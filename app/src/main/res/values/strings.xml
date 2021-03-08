@@ -6,4 +6,6 @@
     <string name="input_text_hint">Enter any text</string>
     <string name="submit_btn_text">Submit</string>
     <string name="retrieve_btn_text">Retrieve</string>
+    <string name="file_handling_write_btn_text">Write</string>
+    <string name="file_handling_read_btn_text">Read</string>
 </resources>

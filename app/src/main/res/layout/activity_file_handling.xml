@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".FileHandlingActivity">
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/fileHandlingEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/button_horizontal_margin_20dp"
+        android:layout_marginTop="212dp"
+        android:hint="@string/input_text_hint"
+        android:padding="@dimen/edit_text_padding_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/fileHandlingWriteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="@string/file_handling_write_btn_text"
+        app:layout_constraintEnd_toStartOf="@+id/fileHandlingReadBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fileHandlingEditText" />
+
+    <Button
+        android:id="@+id/fileHandlingReadBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/file_handling_read_btn_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fileHandlingWriteBtn"
+        app:layout_constraintTop_toTopOf="@+id/fileHandlingWriteBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
