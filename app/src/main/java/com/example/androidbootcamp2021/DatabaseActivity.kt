@@ -32,43 +32,13 @@ class DatabaseActivity : AppCompatActivity() {
 
     }
 
-    private fun getDataFromDB(): ArrayList<EmployeeDataClass> {
+    private fun setupList() {
         // get data from Database
-        return databaseManager.getAllEmpDataFromSQLiteDB()
-    }
-
-    fun setupList() {
-        val employeeList = getDataFromDB()
+        val employeeList = databaseManager.getAllEmpDataFromSQLiteDB()
 
         val customAdapter = CustomAdapter(this, employeeList)
         recyclerView.adapter = customAdapter
 
         customAdapter.notifyDataSetChanged()
-    }
-
-    fun deleteAnEmployeeData(empID: Int) {
-        // get writable database
-        val db = databaseHelper.writableDatabase
-
-        val numOfRowDeleted = db.delete(
-            SQLiteDatabaseHelper.TABLE_NAME,
-            SQLiteDatabaseHelper.COLUMN_ID + "=?",
-            arrayOf(empID.toString())
-        )
-
-        if (numOfRowDeleted > 0) {
-            Toast.makeText(
-                this,
-                "Employee with Id: $empID is deleted",
-                Toast.LENGTH_LONG
-            ).show()
-
-            // update the list now
-
-        } else {
-            Toast.makeText(this, "There is a problem while deleting the data", Toast.LENGTH_LONG)
-                .show()
-
-        }
     }
 }
