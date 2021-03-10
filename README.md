@@ -15,13 +15,13 @@
 <img src="output2.png" width="300" height="600" />
 	
 ##### Room Demo	
-<img src="output3.png" width="300" height="600" />
+<img src="output3.gif" width="300" height="600" />
 
-##### Content Provider Demo
-* Create an app to show list of file & folders in a user’s device.
-* User can navigate the structure
-* If a user clicks a file, try to open the file with a relevant app
-* Save one image file inside app’s private space and one in internal memory
-* Try sharing both the files on different share button click
+* Content Provider Demo
+	1. Create an app to show list of file & folders in a user’s device.
+	2. User can navigate the structure
+	3. If a user clicks a file, try to open the file with a relevant app
+	4. Save one image file inside app’s private space and one in internal memory
+	5. Try sharing both the files on different share button click
 
 *_To be updated..._*
