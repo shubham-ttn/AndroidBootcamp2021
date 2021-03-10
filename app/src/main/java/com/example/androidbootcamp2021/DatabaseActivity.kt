@@ -1,24 +1,27 @@
 package com.example.androidbootcamp2021
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.concurrent.Executors
 
 class DatabaseActivity : AppCompatActivity() {
 
-    private val databaseManager = SQLiteDatabaseManager(this)
     lateinit var recyclerView: RecyclerView
-
-    private val databaseHelper = SQLiteDatabaseHelper(this)
+    private lateinit var customAdapter: CustomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_database)
 
-        initialiseRecyclerView()
+        // Get the intent data to check from
+        // which button click the user is coming
+        // in this activity
+        val intent = intent
+        BUTTON_CLICKED = intent.getStringExtra(MainActivity.BUTTON_CLICKED_KEY).toString()
 
+        initialiseRecyclerView()
 
     }
 
@@ -28,17 +31,47 @@ class DatabaseActivity : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView.layoutManager = linearLayoutManager
 
-        setupList()
+        if (BUTTON_CLICKED == MainActivity.SQLITE_DEMO_BTN) {
+            setupListFromSQLite()
+            recyclerView.adapter = customAdapter
+            customAdapter.notifyDataSetChanged()
+        } else
+            setupListFromRoom()
 
     }
 
-    private fun setupList() {
+    private fun setupListFromRoom() {
+        val roomDatabaseBuilder = RoomDatabaseBuilder.getInstance(this)
+        var employeeList: List<EmployeeDataClass>
+
+        Executors.newSingleThreadExecutor().execute {
+            // get data from Database
+            employeeList = roomDatabaseBuilder.employeeDao().getAllEmployeeDetails()
+
+            recyclerView.apply {
+                // Stuff that updates the UI
+                runOnUiThread {
+                    customAdapter = CustomAdapter(
+                        this@DatabaseActivity,
+                        employeeList as ArrayList<EmployeeDataClass>
+                    )
+                    recyclerView.adapter = customAdapter
+                    customAdapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
+    private fun setupListFromSQLite() {
+        val databaseManager = SQLiteDatabaseManager(this)
+
         // get data from Database
         val employeeList = databaseManager.getAllEmpDataFromSQLiteDB()
 
-        val customAdapter = CustomAdapter(this, employeeList)
-        recyclerView.adapter = customAdapter
+        customAdapter = CustomAdapter(this, employeeList)
+    }
 
-        customAdapter.notifyDataSetChanged()
+    companion object {
+        lateinit var BUTTON_CLICKED: String
     }
 }

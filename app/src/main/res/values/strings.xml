@@ -5,4 +5,8 @@
     <string name="address_placeholder_text">Address</string>
     <string name="add_dummy_data_in_database">Add Dummy Data</string>
     <string name="update_details_btn">Update Details</string>
+    <string name="sqlite_demo_btn_text">SQLite Demo</string>
+    <string name="sqlite_title_text">SQLite</string>
+    <string name="room_demo_btn_text">Room Demo</string>
+    <string name="androidx_room_title_text">AndroidX Room</string>
 </resources>
