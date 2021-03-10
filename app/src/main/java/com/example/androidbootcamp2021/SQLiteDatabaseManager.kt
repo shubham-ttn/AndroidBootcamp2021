@@ -70,33 +70,7 @@ class SQLiteDatabaseManager(private val context: Context) {
         return employeesList
     }
 
-    fun deleteAnEmployeeData(empID: Int) {
-        // get writable database
-        val db = databaseHelper.writableDatabase
-
-        val numOfRowDeleted = db.delete(
-            SQLiteDatabaseHelper.TABLE_NAME,
-            SQLiteDatabaseHelper.COLUMN_ID + "=?",
-            arrayOf(empID.toString())
-        )
-
-        if (numOfRowDeleted > 0) {
-            Toast.makeText(
-                context,
-                "Employee with Id: $empID is deleted",
-                Toast.LENGTH_LONG
-            ).show()
-
-            // update the list now
-
-        } else {
-            Toast.makeText(context, "There is a problem while deleting the data", Toast.LENGTH_LONG)
-                .show()
-
-        }
-    }
-
-    fun updateAnEmployeeData(empID: Int, name: String, contact: String, address: String) {
+    fun updateAnEmployeeData(empID: Int, name: String, contact: String, address: String): Int {
         // get writable database
         val db = databaseHelper.writableDatabase
 
@@ -105,27 +79,23 @@ class SQLiteDatabaseManager(private val context: Context) {
         contentValues.put(SQLiteDatabaseHelper.COLUMN_CONTACT, contact)
         contentValues.put(SQLiteDatabaseHelper.COLUMN_ADDRESS, address)
 
-        val numOfRowsUpdated = db.update(
+        return db.update(
             SQLiteDatabaseHelper.TABLE_NAME,
             contentValues,
             SQLiteDatabaseHelper.COLUMN_ID + "=?",
             arrayOf(empID.toString())
         )
+    }
 
-        if (numOfRowsUpdated > 0) {
-            Toast.makeText(
-                context,
-                "Employee with Id: $empID is updated",
-                Toast.LENGTH_LONG
-            ).show()
+    fun deleteAnEmployeeData(empID: Int): Int {
+        // get writable database
+        val db = databaseHelper.writableDatabase
 
-            // update the list now
-
-        } else {
-            Toast.makeText(context, "There is a problem while updating the data", Toast.LENGTH_LONG)
-                .show()
-
-        }
+        return db.delete(
+            SQLiteDatabaseHelper.TABLE_NAME,
+            SQLiteDatabaseHelper.COLUMN_ID + "=?",
+            arrayOf(empID.toString())
+        )
     }
 
 }
