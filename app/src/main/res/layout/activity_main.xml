@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/background_task_1_demo_text"
+        android:textColor="@color/purple_500"
+        android:textSize="38sp"
+        android:textStyle="italic|bold" />
+
+    <Button
+        android:id="@+id/receiverDemoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24dp"
+        android:text="@string/receiver_demo_btn_text" />
+
+    <!--
+    <Button
+        android:id="@+id/serviceDemoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_demo_btn_text"
+        android:layout_marginHorizontal="@dimen/margin_24dp" />
+
+    <Button
+        android:id="@+id/localServiceDemoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Local Service Demo"
+        android:layout_marginHorizontal="@dimen/margin_24dp" />
+
+        -->
+
+
+</LinearLayout>
