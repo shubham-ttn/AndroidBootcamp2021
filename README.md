@@ -6,7 +6,7 @@
 ### Exercise
 
 * Use start() join() and sleep() methods in single program to execute different threads.
-<img src="output1.png" width="300" height="600" />
+<img src="output1.png" width="600" height="300" />
 
 * Register receiver  for incoming calls and battery status.
 
