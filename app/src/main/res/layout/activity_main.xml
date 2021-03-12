@@ -24,22 +24,40 @@
         android:layout_marginHorizontal="@dimen/margin_24dp"
         android:text="@string/receiver_demo_btn_text" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginHorizontal="@dimen/margin_24dp" >
+
+        <Button
+            android:id="@+id/serviceStartDemoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/start_music_btn_text"
+            android:layout_margin="@dimen/margin_4dp"/>
+
+        <Button
+            android:id="@+id/serviceStopDemoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/stop_music_btn_text"
+            android:layout_margin="4dp"/>
+
+    </LinearLayout>
+
     <!--
-    <Button
-        android:id="@+id/serviceDemoBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/service_demo_btn_text"
-        android:layout_marginHorizontal="@dimen/margin_24dp" />
+   <Button
+       android:id="@+id/localServiceDemoBtn"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Local Service Demo"
+       android:layout_marginHorizontal="@dimen/margin_24dp" />
 
-    <Button
-        android:id="@+id/localServiceDemoBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Local Service Demo"
-        android:layout_marginHorizontal="@dimen/margin_24dp" />
-
-        -->
+       -->
 
 
 </LinearLayout>

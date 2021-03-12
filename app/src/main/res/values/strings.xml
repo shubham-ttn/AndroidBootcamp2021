@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AndroidBootcamp2021</string>
     <string name="receiver_demo_btn_text">Receiver</string>
-    <string name="service_demo_btn_text">Service Demo</string>
-    <string name="background_task_1_demo_text">Background Task 1 Demo</string>
+    <string name="service_demo_btn_text">Service</string>
+    <string name="background_task_1_demo_text">Background Task 1</string>
+    <string name="start_music_btn_text">Start Music</string>
+    <string name="stop_music_btn_text">Stop Music</string>
 </resources>

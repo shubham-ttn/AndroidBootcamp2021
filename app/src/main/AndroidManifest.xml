@@ -30,6 +30,9 @@
             </intent-filter>
         </receiver>
 
+        <!-- Services -->
+        <service android:name=".services.MyService"/>
+
     </application>
 
 </manifest>
