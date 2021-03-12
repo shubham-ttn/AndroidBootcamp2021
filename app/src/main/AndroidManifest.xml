@@ -21,7 +21,7 @@
 
 
         <!-- Statically registering broadcast receiver -->
-        <receiver android:name=".receivers.MyPhoneReceiver"
+        <receiver android:name=".broadcastreceivers.IncomingCallReceiver"
             android:exported="true"
             android:enabled="true">
             <intent-filter>
@@ -31,7 +31,7 @@
         </receiver>
 
         <!-- Services -->
-        <service android:name=".services.MyService"/>
+        <service android:name=".services.MusicService"/>
 
     </application>
 

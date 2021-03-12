@@ -7,7 +7,7 @@ import android.os.IBinder
 import android.widget.Toast
 import com.example.androidbootcamp2021.R
 
-class MyService: Service() {
+class MusicService: Service() {
 
     private lateinit var mediaPlayer: MediaPlayer
 

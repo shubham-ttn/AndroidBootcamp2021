@@ -1,4 +1,4 @@
-package com.example.androidbootcamp2021.receivers
+package com.example.androidbootcamp2021.broadcastreceivers
 
 import android.content.BroadcastReceiver
 import android.content.Context

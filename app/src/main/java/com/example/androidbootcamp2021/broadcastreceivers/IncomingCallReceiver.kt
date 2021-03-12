@@ -1,4 +1,4 @@
-package com.example.androidbootcamp2021.receivers
+package com.example.androidbootcamp2021.broadcastreceivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -6,7 +6,7 @@ import android.content.Intent
 import android.telephony.TelephonyManager
 import android.widget.Toast
 
-class MyPhoneReceiver : BroadcastReceiver() {
+class IncomingCallReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         if (intent?.getStringExtra(TelephonyManager.EXTRA_STATE)
                 .equals(TelephonyManager.EXTRA_STATE_RINGING)

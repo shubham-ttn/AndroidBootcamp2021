@@ -6,16 +6,13 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.androidbootcamp2021.receivers.BatteryReceiver
-import com.example.androidbootcamp2021.receivers.MyPhoneReceiver
-import com.example.androidbootcamp2021.services.MyService
+import com.example.androidbootcamp2021.broadcastreceivers.BatteryReceiver
+import com.example.androidbootcamp2021.services.MusicService
 import com.example.androidbootcamp2021.thread.MyThread
 import com.example.androidbootcamp2021.thread.MyThread1
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,25 +22,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Ques 1 : Use start() join() and sleep() methods in single program to execute different threads.
-        // See thread directory
         threadDemo()
 
-        //Ques 2 : Register receiver  for incoming calls and battery status.
-        // See MyPhoneReceiver in Receivers directory used Static registration, see Manifest file
-        // And BatteryReceiver in Receivers directory used dynamic registration
-        // First, get permission from the user
         broadcastReceiverDemo()
 
-
-        //Ques 3 : Music Player with raw file to play song in background.
-        // See MyService in Services directory
         serviceDemo()
 
     }
 
     override fun onStop() {
         super.onStop()
+
+        // Unregister the Receiver
+        // when activity is not visible
         unregisterReceiver(batteryReceiver)
     }
 
@@ -62,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun serviceDemo() {
-        val serviceIntent = Intent(applicationContext, MyService::class.java)
+        val serviceIntent = Intent(applicationContext, MusicService::class.java)
         serviceStartDemoBtn.setOnClickListener {
             startService(serviceIntent)
         }
