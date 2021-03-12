@@ -76,22 +76,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun broadcastReceiverDemo() {
-        receiverDemoBtn.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    android.Manifest.permission.READ_PHONE_STATE
-                )
-                != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(android.Manifest.permission.READ_PHONE_STATE), 1
-                );
-            }
+        // Dynamic registration of Broadcast receiver
+        batteryReceiver = BatteryReceiver()
+        registerReceiver(batteryReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
 
-            // Dynamic registration of Broadcast receiver
-            batteryReceiver = BatteryReceiver()
-            registerReceiver(batteryReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.READ_PHONE_STATE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.READ_PHONE_STATE), 1
+            );
         }
     }
 

@@ -9,7 +9,7 @@ class BatteryReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val percentage = intent?.getIntExtra("level", 0)
         if(percentage != 0){
-            Toast.makeText(context, percentage.toString() + "%", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Batter percentage " + percentage.toString() + "%", Toast.LENGTH_SHORT).show()
         }
     }
 }
