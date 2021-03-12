@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:weightSum="3"
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,6 +70,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/room_demo_btn_text"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:text="@string/content_provider_title_text"
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            android:textColor="@color/purple_500"/>
+
+        <Button
+            android:id="@+id/openFileBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_file_btn_text"
             android:layout_marginHorizontal="@dimen/margin_16dp"
             />
 

@@ -1,4 +1,4 @@
-package com.example.androidbootcamp2021
+package com.example.androidbootcamp2021.roomdemo
 
 import android.content.Context
 import androidx.room.Room
@@ -9,7 +9,10 @@ object RoomDatabaseBuilder {
     fun getInstance(context: Context): AppRoomDatabase {
         if (INSTANCE == null) {
             synchronized(AppRoomDatabase::class) {
-                INSTANCE = buildRoomDB(context)
+                INSTANCE =
+                    buildRoomDB(
+                        context
+                    )
             }
         }
         return INSTANCE!!

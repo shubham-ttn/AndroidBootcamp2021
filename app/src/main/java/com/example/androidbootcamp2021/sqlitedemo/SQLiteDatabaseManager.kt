@@ -1,15 +1,16 @@
-package com.example.androidbootcamp2021
+package com.example.androidbootcamp2021.sqlitedemo
 
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
+import com.example.androidbootcamp2021.EmployeeDataClass
 
 class SQLiteDatabaseManager(private val context: Context) {
 
     // Create object of DatabaseHelper class
     // which we have created
-    private val databaseHelper = SQLiteDatabaseHelper(context)
+    private val databaseHelper =
+        SQLiteDatabaseHelper(context)
 
     private val TAG = "DB_MANAGER"
 
@@ -51,7 +52,8 @@ class SQLiteDatabaseManager(private val context: Context) {
         if (cursor.moveToFirst()) {
             do {
 
-                val employee = EmployeeDataClass()
+                val employee =
+                    EmployeeDataClass()
                 employee.id =
                     cursor.getInt(cursor.getColumnIndex(SQLiteDatabaseHelper.COLUMN_ID))
                 employee.name =

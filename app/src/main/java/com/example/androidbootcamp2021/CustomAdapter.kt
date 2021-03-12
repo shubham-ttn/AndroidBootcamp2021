@@ -8,6 +8,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidbootcamp2021.activities.DatabaseActivity
+import com.example.androidbootcamp2021.activities.MainActivity
+import com.example.androidbootcamp2021.roomdemo.AppRoomDatabase
+import com.example.androidbootcamp2021.roomdemo.RoomDatabaseBuilder
+import com.example.androidbootcamp2021.sqlitedemo.SQLiteDatabaseManager
 import java.util.concurrent.Executors
 
 class CustomAdapter(
@@ -15,7 +20,8 @@ class CustomAdapter(
     private val employeeData: ArrayList<EmployeeDataClass>
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    private val databaseManager = SQLiteDatabaseManager(context)
+    private val databaseManager =
+        SQLiteDatabaseManager(context)
     private val databaseRoom: AppRoomDatabase = RoomDatabaseBuilder.getInstance(context)
 
 

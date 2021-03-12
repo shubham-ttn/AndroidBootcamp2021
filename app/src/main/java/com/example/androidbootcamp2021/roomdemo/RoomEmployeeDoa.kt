@@ -1,6 +1,7 @@
-package com.example.androidbootcamp2021
+package com.example.androidbootcamp2021.roomdemo
 
 import androidx.room.*
+import com.example.androidbootcamp2021.EmployeeDataClass
 
 // @annotation_name are inbuilt annontations
 // of Androidx Room

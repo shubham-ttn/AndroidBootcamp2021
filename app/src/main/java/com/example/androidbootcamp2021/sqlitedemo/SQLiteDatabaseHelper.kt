@@ -1,4 +1,4 @@
-package com.example.androidbootcamp2021
+package com.example.androidbootcamp2021.sqlitedemo
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

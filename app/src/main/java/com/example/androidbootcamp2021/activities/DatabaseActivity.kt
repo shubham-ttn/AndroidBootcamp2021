@@ -1,9 +1,14 @@
-package com.example.androidbootcamp2021
+package com.example.androidbootcamp2021.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidbootcamp2021.CustomAdapter
+import com.example.androidbootcamp2021.EmployeeDataClass
+import com.example.androidbootcamp2021.R
+import com.example.androidbootcamp2021.roomdemo.RoomDatabaseBuilder
+import com.example.androidbootcamp2021.sqlitedemo.SQLiteDatabaseManager
 import java.util.concurrent.Executors
 
 class DatabaseActivity : AppCompatActivity() {
@@ -51,10 +56,11 @@ class DatabaseActivity : AppCompatActivity() {
             recyclerView.apply {
                 // Stuff that updates the UI
                 runOnUiThread {
-                    customAdapter = CustomAdapter(
-                        this@DatabaseActivity,
-                        employeeList as ArrayList<EmployeeDataClass>
-                    )
+                    customAdapter =
+                        CustomAdapter(
+                            this@DatabaseActivity,
+                            employeeList as ArrayList<EmployeeDataClass>
+                        )
                     recyclerView.adapter = customAdapter
                     customAdapter.notifyDataSetChanged()
                 }
@@ -63,12 +69,14 @@ class DatabaseActivity : AppCompatActivity() {
     }
 
     private fun setupListFromSQLite() {
-        val databaseManager = SQLiteDatabaseManager(this)
+        val databaseManager =
+            SQLiteDatabaseManager(this)
 
         // get data from Database
         val employeeList = databaseManager.getAllEmpDataFromSQLiteDB()
 
-        customAdapter = CustomAdapter(this, employeeList)
+        customAdapter =
+            CustomAdapter(this, employeeList)
     }
 
     companion object {
