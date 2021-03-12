@@ -49,15 +49,12 @@
 
     </LinearLayout>
 
-    <!--
    <Button
        android:id="@+id/localServiceDemoBtn"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Local Service Demo"
+       android:text="@string/local_service_btn_text"
        android:layout_marginHorizontal="@dimen/margin_24dp" />
-
-       -->
 
 
 </LinearLayout>
