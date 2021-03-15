@@ -2,4 +2,7 @@
     <string name="app_name">AndroidBootcamp2021</string>
     <string name="start_job_btn_text">Start Job</string>
     <string name="stop_job_btn_text">Stop Job</string>
+    <string name="workmanager_demo_text">WorkManager Demo</string>
+    <string name="work_manager_btn_text">Get Notification</string>
+    <string name="jobscheduler_demo_title_text">JobScheduler Demo</string>
 </resources>

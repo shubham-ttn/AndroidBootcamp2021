@@ -10,6 +10,11 @@ import android.os.Handler
 import android.os.Message
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -32,6 +37,28 @@ class MainActivity : AppCompatActivity() {
         stopJobButton.setOnClickListener {
             stopJob()
         }
+
+        // constraints to create notification only when the phone has
+        // enough battery and Internet is connected
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresBatteryNotLow(true)
+            .build()
+
+        // which class should be executed is decided by this request object
+        // MyWork is Worker class
+        val request = OneTimeWorkRequestBuilder<MyWork>().setConstraints(constraints).build()
+        workManagerBtn.setOnClickListener {
+            // It enqueues and manages the work request.
+            WorkManager.getInstance(this).enqueue(request)
+        }
+
+        // creating a toast to display the status of our task
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(request.id)
+            .observe(this, Observer {
+                val status = it.state.name
+                Toast.makeText(this, "$status", Toast.LENGTH_SHORT).show()
+            })
     }
 
     private fun stopJob() {
@@ -40,12 +67,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startJob() {
-        Toast.makeText(this, "Job will start in 5 seconds...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Job will start in 2 seconds...", Toast.LENGTH_SHORT).show()
 
         val jobService = ComponentName(this, MyJobScheduler::class.java)
         val jobInfo = JobInfo
             .Builder(jobId, jobService)
-            .setMinimumLatency(5000)
+            .setMinimumLatency(2000)
             .build()
 
         val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler

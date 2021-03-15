@@ -24,7 +24,7 @@ class MyJobScheduler: JobService() {
     private val mJobHandler: Handler = Handler(object : Handler.Callback {
         override fun handleMessage(msg: Message): Boolean {
             Toast.makeText(applicationContext, "Job running", Toast.LENGTH_SHORT).show()
-            for (i in 1..5) {
+            for (i in 1..10) {
                 Toast.makeText(applicationContext, "Running job $i", Toast.LENGTH_SHORT).show()
             }
             jobFinished(msg.obj as JobParameters, false)
