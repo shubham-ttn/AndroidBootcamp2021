@@ -1,7 +1,7 @@
 # Session : Android: Storage Part 2
 
 ### Main Screen
-<img src="output1.png" width="300" height="600" />
+<img src="output.png" width="300" height="600" />
 
 ### Exercise
 
