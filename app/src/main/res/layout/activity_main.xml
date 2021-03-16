@@ -10,95 +10,90 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:text="@string/sqlite_title_text"
-            android:textStyle="bold|italic"
             android:gravity="center"
-            android:textColor="@color/purple_500"/>
-
-        <Button
-            android:id="@+id/addSQLiteDummyDataBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_dummy_data_in_database"
-            android:layout_marginHorizontal="@dimen/margin_16dp"
-            />
-
-        <Button
-            android:id="@+id/sqliteDemoBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sqlite_demo_btn_text"
-            android:layout_marginHorizontal="@dimen/margin_16dp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="32sp"
             android:text="@string/androidx_room_title_text"
-            android:textStyle="bold|italic"
-            android:gravity="center"
-            android:textColor="@color/purple_500"/>
+            android:textColor="@color/purple_500"
+            android:textSize="32sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/addDummyRoomDataBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_dummy_data_in_database"
             android:layout_marginHorizontal="@dimen/margin_16dp"
-            />
+            android:text="@string/add_dummy_data_in_database" />
 
         <Button
             android:id="@+id/roomDemoBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/room_demo_btn_text"
             android:layout_marginHorizontal="@dimen/margin_16dp"
-            />
+            android:text="@string/room_demo_btn_text" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="32sp"
-            android:text="@string/content_provider_title_text"
-            android:textStyle="bold|italic"
             android:gravity="center"
-            android:textColor="@color/purple_500"/>
+            android:text="@string/content_provider_title_text"
+            android:textColor="@color/purple_500"
+            android:textSize="32sp"
+            android:textStyle="bold|italic" />
 
         <Button
-            android:id="@+id/openFileBtn"
+            android:id="@+id/contentProviderBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/open_file_btn_text"
             android:layout_marginHorizontal="@dimen/margin_16dp"
-            />
+            android:text="@string/add_data_in_sqlite_db_text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:text="@string/content_provider_info_text"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sqlite_title_text"
+            android:textColor="@color/purple_500"
+            android:textSize="32sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/sqliteDemoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp"
+            android:text="@string/sqlite_demo_btn_text" />
 
     </LinearLayout>
+
 
 </LinearLayout>

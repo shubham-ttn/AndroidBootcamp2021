@@ -17,11 +17,10 @@
 ##### Room Demo	
 <img src="output3.gif" width="300" height="600" />
 
-* Content Provider Demo
-	1. Create an app to show list of file & folders in a user’s device.
-	2. User can navigate the structure
-	3. If a user clicks a file, try to open the file with a relevant app
-	4. Save one image file inside app’s private space and one in internal memory
-	5. Try sharing both the files on different share button click
-
-*_To be updated..._*
+#### Content Provider Demo
+* Make an application using Content provider with following features:
+	1. Add user information like Name, mobile number from the contacts list.
+	2. Display all inserted record in RecyclerView and each item have edit and delete button..
+	3. On delete button clicked - delete record from table and refresh list Data.
+	4. On edit button clicked - update record in table and refresh list Data.
+<img src="content_provider_demo.gif" width="300" height="600" />
