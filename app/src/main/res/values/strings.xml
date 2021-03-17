@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidBootcamp2021</string>
+    <string name="post_author_placeholder">Post Author</string>
+    <string name="post_message_placeholder">Message</string>
 </resources>
