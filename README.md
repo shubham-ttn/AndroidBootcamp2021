@@ -1,6 +1,6 @@
 # Welcome to the AndroidBootcamp2021!
 
-### This document provides session title with links to solved exercise
+### This document provides session details with links of solved exercise
 
 ### Sessions:
 
