@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidBootcamp2021</string>
+    <string name="change_background_btn_text">Change Background</string>
+    <string name="livedata_demo_btn_text">LiveData Demo</string>
+    <string name="add_data_description">Add Data</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="enter_name_placeholder">Enter Name</string>
+    <string name="enter_contact_placeholder">Enter Contact</string>
+    <string name="enter_address_placeholder">Enter Address</string>
 </resources>

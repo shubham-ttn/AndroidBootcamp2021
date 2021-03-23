@@ -1,9 +1,7 @@
-package com.example.androidbootcamp2021
+package com.example.androidbootcamp2021.viewmodels
 
 import android.graphics.Color
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import java.util.*
 import kotlin.random.Random
 
 class ColorViewModel : ViewModel() {
@@ -18,12 +16,14 @@ class ColorViewModel : ViewModel() {
         Color.MAGENTA
     )
 
+    // Assinging a default color
     var selectedColor = colorArray[0]
 
     fun getRandomBackgroundColor() {
         selectedColor = colorArray[randomNumberGenerator()]
     }
 
+    // Generate random number
     private fun randomNumberGenerator(): Int {
         val startRange = 0
         val endRange = colorArray.size
