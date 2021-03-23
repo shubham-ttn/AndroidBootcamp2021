@@ -7,22 +7,21 @@ import java.util.*
 import kotlin.random.Random
 
 class ColorViewModel : ViewModel() {
+    private val colorArray = arrayOf(
+        Color.WHITE,
+        Color.CYAN,
+        Color.BLACK,
+        Color.BLUE,
+        Color.DKGRAY,
+        Color.GRAY,
+        Color.GREEN,
+        Color.MAGENTA
+    )
 
-   companion object {
-       private val colorArray = arrayOf(
-           Color.WHITE,
-           Color.CYAN,
-           Color.BLACK,
-           Color.BLUE,
-           Color.DKGRAY,
-           Color.GRAY,
-           Color.GREEN,
-           Color.MAGENTA
-       )
-   }
+    var selectedColor = colorArray[0]
 
-    fun getRandomBackgroundColor(): Int {
-        return colorArray[randomNumberGenerator()]
+    fun getRandomBackgroundColor() {
+        selectedColor = colorArray[randomNumberGenerator()]
     }
 
     private fun randomNumberGenerator(): Int {

@@ -17,9 +17,11 @@ class MainActivity : AppCompatActivity() {
         // Initialize colorViewModel
         colorViewModel = ViewModelProvider(this).get(ColorViewModel::class.java)
 
+        mainActivity_CL.setBackgroundColor(colorViewModel.selectedColor)
+
         changeBackground_BTN.setOnClickListener {
-            mainActivity_CL.setBackgroundColor(colorViewModel.getRandomBackgroundColor())
-            Log.i("MainActivity", "Background should change, Color Id: ${colorViewModel.getRandomBackgroundColor()}")
+            colorViewModel.getRandomBackgroundColor()
+            mainActivity_CL.setBackgroundColor(colorViewModel.selectedColor)
         }
     }
 
