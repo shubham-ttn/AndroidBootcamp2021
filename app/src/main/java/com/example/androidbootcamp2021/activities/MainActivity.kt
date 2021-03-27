@@ -3,6 +3,7 @@ package com.example.androidbootcamp2021.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidbootcamp2021.R
 import com.example.androidbootcamp2021.viewmodels.ColorViewModel
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun attachClickListeners() {
         changeBackground_BTN.setOnClickListener {
-            colorViewModel.getRandomBackgroundColor()
+            colorViewModel.changeBackgroundColor()
             mainActivity_CL.setBackgroundColor(colorViewModel.selectedColor)
         }
 

@@ -16,10 +16,10 @@ class ColorViewModel : ViewModel() {
         Color.MAGENTA
     )
 
-    // Assinging a default color
+    // Assigning a default color
     var selectedColor = colorArray[0]
 
-    fun getRandomBackgroundColor() {
+    fun changeBackgroundColor() {
         selectedColor = colorArray[randomNumberGenerator()]
     }
 
@@ -29,6 +29,4 @@ class ColorViewModel : ViewModel() {
         val endRange = colorArray.size
         return Random.nextInt(startRange, endRange)
     }
-
-
 }

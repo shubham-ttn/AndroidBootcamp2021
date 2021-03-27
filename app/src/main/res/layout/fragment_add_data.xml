@@ -24,6 +24,7 @@
         android:layout_margin="@dimen/margin_20dp"
         android:hint="@string/enter_contact_placeholder"
         android:textSize="@dimen/text_size_18sp"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="@+id/personName_ET"
         app:layout_constraintTop_toBottomOf="@+id/personName_ET" />
 
