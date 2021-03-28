@@ -18,6 +18,8 @@ class PersonDetailAdapter(
     private val personsDataset: ArrayList<PersonDataClass>
 ): RecyclerView.Adapter<PersonDetailAdapter.ViewHolder>() {
 
+    private val TAG = "PersonDetailAdapter"
+
     class ViewHolder(binding: ItemPersonViewBinding) : RecyclerView.ViewHolder(binding.root) {
         val personNameTextView: TextView = binding.personNameTV
         val personContactTextView: TextView = binding.personContactTV

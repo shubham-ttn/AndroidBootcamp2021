@@ -25,6 +25,8 @@ class DisplayDataFragment : Fragment() {
 
     private lateinit var customAdapter: PersonDetailAdapter
     private val TAG = "DisplayDataFragment"
+    private var personList: ArrayList<PersonDataClass> = ArrayList()
+    private lateinit var personViewModel: PersonViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,30 +38,38 @@ class DisplayDataFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Log.i(TAG, "onActivityCreated")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.i(TAG, "onViewCreated")
+
+        setupUI()
 
         addPersonDetails_FAB.setOnClickListener {
             openAddPersonDetailsFragment()
         }
-
-        initialiseRecyclerView()
     }
 
-    private fun initialiseRecyclerView() {
+    private fun setupUI() {
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         personDetails_RV.layoutManager = linearLayoutManager
 
+        customAdapter = PersonDetailAdapter(context!!, personList)
+        personDetails_RV.adapter = customAdapter
         setupListFromRoom()
+        Log.i(TAG, "Data is $personList")
     }
 
     private fun setupListFromRoom() {
-        val application = activity!!.application
-
         // With LiveData
+        val application = activity!!.application
         val personViewModel = ViewModelProvider(this).get(PersonViewModel(application)::class.java)
-        personViewModel.getAllPersonsDetails().observe(viewLifecycleOwner, Observer {
-            Log.i(TAG, it.toString())
-            customAdapter = PersonDetailAdapter(context!!, it as ArrayList<PersonDataClass>)
-            personDetails_RV.adapter = customAdapter
+
+        personViewModel?.allPersons.observe(viewLifecycleOwner, Observer {
+            //Log.i(TAG, it.toString())
+            personList = it as ArrayList<PersonDataClass>
             customAdapter.notifyDataSetChanged()
         })
 
