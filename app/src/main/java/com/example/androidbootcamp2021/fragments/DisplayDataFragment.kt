@@ -26,7 +26,6 @@ class DisplayDataFragment : Fragment() {
     private lateinit var customAdapter: PersonDetailAdapter
     private val TAG = "DisplayDataFragment"
     private var personList: ArrayList<PersonDataClass> = ArrayList()
-    private lateinit var personViewModel: PersonViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +58,6 @@ class DisplayDataFragment : Fragment() {
         customAdapter = PersonDetailAdapter(context!!, personList)
         personDetails_RV.adapter = customAdapter
         setupListFromRoom()
-        Log.i(TAG, "Data is $personList")
     }
 
     private fun setupListFromRoom() {
@@ -67,8 +65,8 @@ class DisplayDataFragment : Fragment() {
         val application = activity!!.application
         val personViewModel = ViewModelProvider(this).get(PersonViewModel(application)::class.java)
 
-        personViewModel?.allPersons.observe(viewLifecycleOwner, Observer {
-            //Log.i(TAG, it.toString())
+        personViewModel.allPersons.observe(viewLifecycleOwner, Observer {
+            Log.i(TAG, it.toString())
             personList = it as ArrayList<PersonDataClass>
             customAdapter.notifyDataSetChanged()
         })

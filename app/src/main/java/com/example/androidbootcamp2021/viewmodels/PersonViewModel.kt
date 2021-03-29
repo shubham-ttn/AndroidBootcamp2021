@@ -12,12 +12,16 @@ import java.util.concurrent.Executors
 class PersonViewModel(application: Application) : AndroidViewModel(application) {
 
     private val context = getApplication<Application>().applicationContext
-    var allPersons: LiveData<List<PersonDataClass>> = MutableLiveData()
+    lateinit var allPersons: LiveData<List<PersonDataClass>>
     private val roomDatabaseBuilder = DatabaseBuilder.getInstance(context)
 
     init {
         //getAllPersonsDetails()
+
         allPersons = roomDatabaseBuilder.personDao().getAllPersonsDetails()
+        Executors.newSingleThreadExecutor().execute {
+
+        }
 
     }
 
