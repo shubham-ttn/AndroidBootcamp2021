@@ -19,7 +19,7 @@ class TicTacToePresenter():Presenter {
         Log.i("TicTac", "Game has been reset")
     }
 
-    fun resetUI() {
+    private fun resetUI() {
         for (i in 0..2) {
             for (j in 0..2) {
                 view.setButtonText(i, j, "")
