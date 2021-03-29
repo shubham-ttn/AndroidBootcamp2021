@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidBootcamp2021</string>
+    <string name="mvp_tic_tac_toe_text">MVP Tic Tac Toe</string>
+    <string name="mvvp_tic_tac_toe_btn_text">MVVP Tic Tac Toe</string>
 </resources>
