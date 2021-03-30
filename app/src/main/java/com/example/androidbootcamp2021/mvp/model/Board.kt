@@ -1,4 +1,4 @@
-package com.example.androidbootcamp2021.model
+package com.example.androidbootcamp2021.mvp.model
 
 import android.util.Log
 

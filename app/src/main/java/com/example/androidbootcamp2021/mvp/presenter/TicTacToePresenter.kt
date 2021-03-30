@@ -1,16 +1,18 @@
-package com.example.androidbootcamp2021.presenter
+package com.example.androidbootcamp2021.mvp.presenter
 
 import android.util.Log
-import com.example.androidbootcamp2021.model.Board
-import com.example.androidbootcamp2021.view.TicTacToeView
+import com.example.androidbootcamp2021.mvp.model.Board
+import com.example.androidbootcamp2021.mvp.view.TicTacToeView
 
-class TicTacToePresenter():Presenter {
+class TicTacToePresenter():
+    Presenter {
 
     lateinit var view: TicTacToeView
     constructor(view: TicTacToeView):this(){
         this.view = view
     }
-    var model: Board = Board()
+    var model: Board =
+        Board()
 
 
     override fun onCreate() {
