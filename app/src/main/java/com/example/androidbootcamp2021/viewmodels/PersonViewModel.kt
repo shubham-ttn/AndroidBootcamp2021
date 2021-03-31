@@ -1,12 +1,12 @@
 package com.example.androidbootcamp2021.viewmodels
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.example.androidbootcamp2021.PersonDataClass
 import com.example.androidbootcamp2021.database.DatabaseBuilder
 import kotlinx.android.synthetic.main.fragment_add_data.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 
 class PersonViewModel(application: Application) : AndroidViewModel(application) {
@@ -16,23 +16,15 @@ class PersonViewModel(application: Application) : AndroidViewModel(application) 
     private val roomDatabaseBuilder = DatabaseBuilder.getInstance(context)
 
     init {
-        //getAllPersonsDetails()
-
-        allPersons = roomDatabaseBuilder.personDao().getAllPersonsDetails()
-        Executors.newSingleThreadExecutor().execute {
-
-        }
-
+        getAllPersonsDetails()
     }
 
-//    fun getAllPersonsDetailsObserver(): MutableLiveData<List<PersonDataClass>>  = allPersons
-
-    /*private fun getAllPersonsDetails() {
-        Executors.newSingleThreadExecutor().execute {
-            val list = roomDatabaseBuilder.personDao().getAllPersonsDetails()
-            allPersons.postValue(list)
+    private fun getAllPersonsDetails() {
+        viewModelScope.launch {
+            val persons = roomDatabaseBuilder.personDao().getAllPersonsDetails()
+            allPersons = persons
         }
-    }*/
+    }
 
     fun addPersonDetails(personDataClass: PersonDataClass) {
         Executors.newSingleThreadExecutor().execute {
