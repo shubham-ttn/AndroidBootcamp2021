@@ -3,7 +3,7 @@
 ### Exercise
 
 * Use coroutines to print fibonacci series after 300 millis each.
-<img src="output.png" height="300" />
+<img src="output.png"/>
 
 * Use coroutines to call an API(https://jsonplaceholder.typicode.com/posts)
 * Use launch, async to call an API
