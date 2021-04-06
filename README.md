@@ -9,10 +9,10 @@
 3. Log event everytime only when a user updates description on Home Screen using the Dialog. (Shall not log event if the user do not updates the description value)
 4. Use default property "user_id" if user name exits in SharedPref, otherwise clear default property.
 
-<img src="output1.png" width="600" height="300"/>
+<img src="output1.png" />
 
 5. On deeplinking to Account screen, if user name is not found in SharedPref, log crashlytics checked exception.
 
-<img src="output2.png" width="600" height="300"/>
-<img src="output3.png" width="600" height="300"/>
+<img src="output2.png" />
+<img src="output3.png" />
 
