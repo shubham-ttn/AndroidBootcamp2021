@@ -9,9 +9,14 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.androidbootcamp2021.MainActivity
 import com.example.androidbootcamp2021.R
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
+
+    lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,9 +26,25 @@ class LoginFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // Initialise Firebase analytics
+        firebaseAnalytics = Firebase.analytics
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setListeners()
+        logScreenEvent()
+    }
+
+    private fun logScreenEvent() {
+        // custom event
+        val eventName = "screen_opened"
+        val bundle = Bundle().apply {
+            putString("screen_name", LoginFragment::class.java.simpleName)
+        }
+        firebaseAnalytics.logEvent(eventName, bundle)
     }
 
     private fun setListeners() {

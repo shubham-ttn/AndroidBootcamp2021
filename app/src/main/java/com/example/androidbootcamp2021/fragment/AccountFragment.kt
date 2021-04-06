@@ -2,6 +2,7 @@ package com.example.androidbootcamp2021.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,17 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.androidbootcamp2021.MainActivity
 import com.example.androidbootcamp2021.R
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_account.*
+import java.lang.Exception
 
 class AccountFragment : Fragment() {
+
+    lateinit var firebaseAnalytics: FirebaseAnalytics
+    private val TAG = AccountFragment::class.java.simpleName
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,26 +32,52 @@ class AccountFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_account, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        logScreenEvent()
         checkLogin()
-        getSharedPref()
         setListeners()
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // Initialise Firebase analytics
+        firebaseAnalytics = Firebase.analytics
+    }
+
+    private fun logScreenEvent() {
+        // custom event
+        val eventName = "screen_opened"
+        val bundle = Bundle().apply {
+            putString("screen_name", AccountFragment::class.java.simpleName)
+        }
+        firebaseAnalytics.logEvent(eventName, bundle)
+    }
+
     /**
-     * Check if user logged in
-     * If not then redirect to Login fragment
+     * Forcefully creating exception for logging Crashlytics Non-fatals exception
      */
     private fun checkLogin() {
-        if (isUserLoggedIn()) {
+        try {
+            val name = getSharedPref() ?: throw NullPointerException("No user logged in")
+            name_TV.text = "Welcome $name"
+        }
+        catch (e: Exception) {
+            Toast.makeText(activity, getString(R.string.name_must_enter_info), Toast.LENGTH_LONG).show()
+            FirebaseCrashlytics.getInstance().recordException(e)
+            Log.i(TAG, "Exception: $e")
+            navigateToLoginDestination()
+        }
+
+        /*if (isUserLoggedIn()) {
             val name = getSharedPref()
             name_TV.text = "Welcome " + name.toString()
         }
         else {
             Toast.makeText(activity, getString(R.string.name_must_enter_info), Toast.LENGTH_LONG).show()
+            FirebaseCrashlytics.getInstance().recordException(e)
             navigateToLoginDestination()
-        }
+        }*/
     }
 
     private fun isUserLoggedIn(): Boolean {

@@ -9,9 +9,17 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.androidbootcamp2021.MainActivity
 import com.example.androidbootcamp2021.R
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_splash.*
 
 class SplashFragment : Fragment() {
+
+    lateinit var firebaseAnalytics: FirebaseAnalytics
+    private val USER_TYPE = "user_type"
+    private val EXISTING_USER = "existing_user"
+    private val NO_USER = "no_user"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,9 +29,25 @@ class SplashFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // Initialise Firebase analytics
+        firebaseAnalytics = Firebase.analytics
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        logScreenEvent()
         setListeners()
+    }
+
+    private fun logScreenEvent() {
+        // custom event
+        val eventName = "screen_opened"
+        val bundle = Bundle().apply {
+            putString("screen_name", SplashFragment::class.java.simpleName)
+        }
+        firebaseAnalytics.logEvent(eventName, bundle)
     }
 
     private fun setListeners() {
@@ -37,11 +61,31 @@ class SplashFragment : Fragment() {
      * If not then redirect to Login fragment
      */
     private fun checkLogin() {
-        if (isUserLoggedIn())
+        if (isUserLoggedIn()) {
+            setUserLoggedInProperty()
             navigateToHomeDestination()
-        else {
+        } else {
+            setUserLoggedInProperty()
             navigateToLoginDestination()
         }
+    }
+
+    private fun setUserLoggedInProperty() {
+        if (isUserLoggedIn()) {
+            setDefaultProperty(getUserName())
+            firebaseAnalytics.setUserProperty(USER_TYPE, EXISTING_USER)
+        }
+        else {
+            setDefaultProperty(null)
+            firebaseAnalytics.setUserProperty(USER_TYPE, NO_USER)
+        }
+    }
+
+    private fun setDefaultProperty(userName: String?) {
+        val bundle = Bundle().apply {
+            firebaseAnalytics.setUserProperty("user_id", userName)
+        }
+        firebaseAnalytics.setDefaultEventParameters(bundle)
     }
 
     private fun navigateToLoginDestination() {
@@ -56,8 +100,15 @@ class SplashFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    private fun getUserName(): String {
+        val sharedPreferences =
+            activity?.getSharedPreferences(MainActivity.MY_PREFERENCES, Context.MODE_PRIVATE)
+        return sharedPreferences?.getString(MainActivity.NAME_KEY, "")!!
+    }
+
     private fun isUserLoggedIn(): Boolean {
-        val sharedPreferences = activity?.getSharedPreferences(MainActivity.MY_PREFERENCES, Context.MODE_PRIVATE)
+        val sharedPreferences =
+            activity?.getSharedPreferences(MainActivity.MY_PREFERENCES, Context.MODE_PRIVATE)
         val name = sharedPreferences?.getString(MainActivity.NAME_KEY, "")
         return name != ""
     }
