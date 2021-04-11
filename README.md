@@ -1,4 +1,4 @@
-# Session : Navigation Component
+# Session : Firebase 1
 
 ### Exercise
 
