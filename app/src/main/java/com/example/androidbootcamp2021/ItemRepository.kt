@@ -3,13 +3,14 @@ package com.example.androidbootcamp2021
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 
-class ItemRepository(context: Context) {
+// Declared this class as open to test with mockito
+open class ItemRepository(context: Context) {
 
-    private val dataModel: ItemModel = ItemModel(context)
+    private val itemModel: ItemModel = ItemModel(context)
 
-    fun getFavoriteItem() = dataModel.getFavoriteItems()
+    fun getFavoriteItem() = itemModel.getFavoriteItems()
 
-    fun saveFavoriteItem(favItem: ItemDataClass) = dataModel.saveFavoriteItems(favItem)
+    fun saveFavoriteItem(favItem: ItemDataClass) = itemModel.saveFavoriteItems(favItem)
 
-    fun removeFavoriteItem() = dataModel.removeFavoriteItems()
+    fun removeFavoriteItem() = itemModel.removeFavoriteItems()
 }

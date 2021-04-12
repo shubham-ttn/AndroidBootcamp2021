@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -52,9 +55,10 @@ dependencies {
     // Kotlin ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    // Espresso libs
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    // Testing libs
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test:rules:1.1.0'
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:1.10.19'
 
 }
