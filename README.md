@@ -27,3 +27,5 @@
 21. Testing 1 - Unit Testing [Exercise](https://github.com/shubham-ttn/AndroidBootcamp2021/tree/Qsns31032021)
 22. Testing 2 - Mokito etc [Exercise](https://github.com/shubham-ttn/AndroidBootcamp2021/tree/Qsns01042021)
 23. Firebase 1 [Exercise](https://github.com/shubham-ttn/AndroidBootcamp2021/tree/Qsns06042021)
+24. Firebase 2 [Exercise](https://github.com/shubham-ttn/AndroidBootcamp2021/tree/Qsns07042021)
+25. Firebase 3 [Exercise](https://github.com/shubham-ttn/AndroidBootcamp2021/tree/Qsns08042021)
